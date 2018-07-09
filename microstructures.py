@@ -9,7 +9,7 @@ def generate_2_gains(nx, ny):
     etas = np.zeros((2, nx+1, ny+1))
     etas[0, :, :] = 1
     etas[0, :, :][(x - nx / 2) ** 2 + (y - ny / 2) ** 2 < radius ** 2] = 0.0
-    etas[1, :, :][(x - nx / 2) ** 2 + (y - ny / 2) ** 2 < (radius - 5) ** 2] = 1.0
+    etas[1, :, :][(x - nx / 2) ** 2 + (y - ny / 2) ** 2 < radius ** 2] = 1.0
 
     return etas.reshape(2, -1, 1)
 
