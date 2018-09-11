@@ -6,9 +6,8 @@ from free_energy import *
 
 np.set_printoptions(threshold=np.inf, linewidth=300)
 
-Nx, Ny = 160, 160
+Nx, Ny = 128, 128
 dx, dy = 0.5, 0.5
-ngrain = 2
 
 nstep = 20000
 print_freq = 100
@@ -17,7 +16,10 @@ dt = 5e-3
 mobil = 5.0
 grcoef = 0.1
 
-Etas = generate_2_gains(Nx, Ny)
+# ngrain = 2
+# Etas = generate_2_gains(Nx, Ny)
+ngrain = 25
+Etas = generate_voronoi(ngrain, Nx, Ny)
 Laplace = laplace_operator(Nx, Ny, dx, dy)
 
 for istep in range(nstep):
